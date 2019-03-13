@@ -317,6 +317,40 @@
         <NeutrinoPfoListName>NeutrinoParticles3D</NeutrinoPfoListName>
         <OutputVertexListName>DaughterVertices3D</OutputVertexListName>
     </algorithm>
+    <algorithm type = "LArSvmPfoCharacterisation">
+        <TrackPfoListName>TrackParticles3D</TrackPfoListName>
+        <ShowerPfoListName>ShowerParticles3D</ShowerPfoListName>
+        <UseThreeDInformation>true</UseThreeDInformation>
+        <SvmFileName>PandoraSvm_v03_11_00.xml</SvmFileName>
+        <SvmName>PfoCharacterisation</SvmName>
+        <SvmFileNameNoChargeInfo>PandoraSvm_v03_11_00.xml</SvmFileNameNoChargeInfo>
+        <SvmNameNoChargeInfo>PfoCharacterisationNoChargeInfo</SvmNameNoChargeInfo>
+        <FeatureTools>
+            <tool type = "LArThreeDLinearFitFeatureTool"/>
+            <tool type = "LArThreeDVertexDistanceFeatureTool"/>
+            <tool type = "LArThreeDPCAFeatureTool"/>
+            <tool type = "LArThreeDOpeningAngleFeatureTool"><HitFraction>0.2</HitFraction></tool>
+            <tool type = "LArThreeDChargeFeatureTool"/>
+	    <tool type = "LArThreeDPCAVariablesFeatureTool">
+	      <PfoFraction>0.2</PfoFraction>
+	      <MinHits>3</MinHits>
+	      <SegmentWidth>1.0</SegmentWidth>
+	      <MoliereFraction>0.05</MoliereFraction>
+	    </tool>
+        </FeatureTools>
+        <FeatureToolsNoChargeInfo>
+            <tool type = "LArThreeDLinearFitFeatureTool"/>
+            <tool type = "LArThreeDVertexDistanceFeatureTool"/>
+            <tool type = "LArThreeDPCAFeatureTool"/>
+            <tool type = "LArThreeDOpeningAngleFeatureTool"><HitFraction>0.2</HitFraction></tool>
+	    <tool type = "LArThreeDPCAVariablesFeatureTool">
+	      <PfoFraction>0.2</PfoFraction>
+	      <MinHits>3</MinHits>
+	      <SegmentWidth>1.0</SegmentWidth>
+	      <MoliereFraction>0.05</MoliereFraction>
+	    </tool>
+        </FeatureToolsNoChargeInfo>
+    </algorithm>
     <algorithm type = "LArNeutrinoProperties">
         <NeutrinoPfoListName>NeutrinoParticles3D</NeutrinoPfoListName>
     </algorithm>
